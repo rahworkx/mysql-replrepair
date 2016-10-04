@@ -1,5 +1,5 @@
 #!/bin/bash
-logfile=~/slave-watcher.log
+logfile=~/repl-watch.log
 while true; do
     status=$(mysql --execute="show slave status\G"|grep "Seconds_Behind_Master:"|awk '{print $2}')
     dup_err=$(mysql --execute="show slave status\G"|grep "Last_SQL_Error:"|grep -oh 'Duplicate')
